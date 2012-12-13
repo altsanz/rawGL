@@ -30,6 +30,7 @@ select {margin: inherit;}
 hr {margin: 0;padding: 0;border: 0;color: #000;background-color: #000;height: 1px}
 
 /** Custom CSS */
+<<<<<<< HEAD
 body {
 	background-image: url('../img/bg.png');
 	width: 960px;
@@ -58,4 +59,10 @@ canvas {
 	width: 400px;
 	height: 400px;
 	margin: 0 auto;
+=======
+
+canvas {
+	width: 400px;
+	height: 400px;
+>>>>>>> Webpage made public with github
 }
