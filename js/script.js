@@ -3,6 +3,19 @@ window.onerror = function(msg, url, lineno) {
   console.log(url + '(' + lineno + '): ' + msg);
 };
 
+
+// Provides requestAnimationFrame in a cross browser way.
+window.requestAnimFrame = (function() {
+  return window.requestAnimationFrame ||
+         window.webkitRequestAnimationFrame ||
+         window.mozRequestAnimationFrame ||
+         window.oRequestAnimationFrame ||
+         window.msRequestAnimationFrame ||
+         function(/* function FrameRequestCallback */ callback, /* DOMElement Element */ element) {
+           return window.setTimeout(callback, 1000/60);
+         };
+})();
+
 // Global application
 var MyApp = {
 	gl : undefined,
@@ -56,11 +69,14 @@ MyApp.draw = function() {
 
 	// Redraws triangle
 	MyApp.gl.drawArrays(MyApp.gl.TRIANGLES, 0, 3);
+
+	// Recalls draw() function.
+	window.requestAnimFrame(MyApp.draw, canvas);
 };
 
 MyApp.init = function() {
-	var viewport = document.getElementById('viewport');
-	MyApp.gl = viewport.getContext('experimental-webgl');
+	canvas = document.getElementById('viewport');
+	MyApp.gl = canvas.getContext('experimental-webgl');
 
 	// Creates a vertex buffer
 	var vertexPosBuffer = MyApp.gl.createBuffer();
@@ -104,8 +120,7 @@ MyApp.init = function() {
 	MyApp.gl.drawArrays(MyApp.gl.TRIANGLES, 0, 3);
 
 	MyApp.draw();
-	// The function draw() will be called every 40 ms
-	setInterval(MyApp.draw(), 40);
+	
 };
 
 
