@@ -30,8 +30,32 @@ select {margin: inherit;}
 hr {margin: 0;padding: 0;border: 0;color: #000;background-color: #000;height: 1px}
 
 /** Custom CSS */
+body {
+	background-image: url('../img/bg.png');
+	width: 960px;
+	margin: 0 auto;
+	font-family: 'Droid Sans', sans-serif;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+	margin-top: 20px;
+	font-size: 100px;
+	font-family: 'Oleo Script Swash Caps', serif;
+	text-align: center;
+	color: #D64F2A;
+}
+
+h2 {
+	font-size: 40px;
+	font-family: 'Droid Sans', sans-serif;
+	color: #335D6A;
+	text-align: center;
+}
 
 canvas {
+	display: block;
 	width: 400px;
 	height: 400px;
+	margin: 0 auto;
 }
